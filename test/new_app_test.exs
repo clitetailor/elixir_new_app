@@ -2,7 +2,13 @@ defmodule NewAppTest do
   use ExUnit.Case
   doctest NewApp
 
-  test "greets the world" do
-    assert NewApp.hello() == :world
+  test "bucket agent" do
+    {:ok, bucket} = Bucket.new()
+
+    bucket
+    |> Bucket.add(5)
+    |> Bucket.add(6)
+
+    assert Bucket.get(bucket, 1) == 6
   end
 end
