@@ -11,6 +11,5 @@ defmodule Bucket do
 
   def add(bucket, value) do
     Agent.update(bucket, &(&1 ++ [value]))
-    bucket
   end
 end
